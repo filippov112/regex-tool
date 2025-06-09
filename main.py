@@ -1,13 +1,22 @@
 import tkinter as tk
 from tkinter import scrolledtext, messagebox, Menu
 import re
-
+import sys, os
 
 class RegexApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Regex Tool")
-        root.iconbitmap("icon.ico")  # Установка иконки приложения
+        # Определяем путь к icon.ico (учитывая сборку через PyInstaller)
+        if getattr(sys, 'frozen', False):
+            icon_path = os.path.join(sys._MEIPASS, 'icon.ico') # type: ignore
+        else:
+            icon_path = 'icon.ico'
+
+        try:
+            root.iconbitmap(icon_path)
+        except Exception:
+            pass
         
         # Создаем верхнюю панель с полями для ввода и кнопками
         self.create_top_panel()

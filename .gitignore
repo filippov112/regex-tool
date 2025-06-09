@@ -38,3 +38,7 @@ packages/
 # Environment
 .env
 *.log
+
+build/
+dist/
+main.spec

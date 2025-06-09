@@ -40,7 +40,7 @@ python main.py
 Для сборки исполняемого файла с помощью PyInstaller:
 ```
 
-pyinstaller --onefile main.py
+pyinstaller --onefile --noconsole --icon=icon.ico --add-data "icon.ico;." main.py
 
 ```
 
